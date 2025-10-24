@@ -38,11 +38,20 @@ def main():
         # create a blank black screen
         updatable.update(dt)
         screen.fill(color=(0,0,0))
+            
 
-        for item in asteroids:
-            if player1.collision(item):
+
+        # checking for player collision with asteroids
+        for ast in asteroids:
+            if player1.collision(ast):
                 print("Game over!")
                 sys.exit(1)
+
+            # checking for shot collision with asteroids
+            for shot in shots:
+                if shot.collision(ast):
+                    shot.kill()
+                    ast.kill()
 
         # draw each item in the group individually
         for item in drawable:
