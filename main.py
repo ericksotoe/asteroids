@@ -3,6 +3,7 @@ from player import *
 from asteroid import *
 from asteroidfield import *
 from constants import *
+import sys
 
 def main():
     pygame.init()
@@ -35,6 +36,11 @@ def main():
         # create a blank black screen
         updatable.update(dt)
         screen.fill(color=(0,0,0))
+
+        for item in asteroids:
+            if player1.collision(item):
+                print("Game over!")
+                sys.exit(1)
 
         # draw each item in the group individually
         for item in drawable:
