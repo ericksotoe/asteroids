@@ -51,7 +51,8 @@ def main():
             for shot in shots:
                 if shot.collision(ast):
                     shot.kill()
-                    ast.kill()
+                    ast.split()
+                    
 
         # draw each item in the group individually
         for item in drawable:
